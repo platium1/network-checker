@@ -1,0 +1,31 @@
+---
+- name: deploy the gisdev software stack
+  hosts: wp
+  sudo: true
+
+  tasks:
+  
+      - name: Get aptitude for upgrade
+        apt: pkg=aptitude state=present
+
+      - name: Safe system upgrade via aptitude
+        apt: upgrade=safe
+        
+      - name: install base packages
+        apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
+        with_items:
+        - sysstat
+        - wget
+        - unzip
+        - zip 
+        - bash-completion
+        - apache2 
+        - libapache2-mod-php7.0 
+        - php7.0
+        - net-tools
+        - autoconf 
+        - gcc 
+        - libc6 
+        - make 
+        - apache2-utils 
+        - libgd-dev
