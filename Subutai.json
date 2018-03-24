@@ -9,6 +9,18 @@
             "template": "debian-stretch",
             "peer-criteria": "HTTP-GROUP",
             "size": "${containerSize}"
+        },
+        {
+            "hostname": "con1",
+            "template": "debian-stretch",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${containerSize}"
+        },
+        {
+            "hostname": "con2",
+            "template": "debian-stretch",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${containerSize}"
         }
     ],
     "peer-criteria": [
@@ -22,9 +34,15 @@
         "extra-vars": [],
         "groups": [
             {
-                "name": "wp",
+                "name": "monitoring_servers",
                 "hostnames": [
                     "${contName}"
+                ]
+            },
+            {
+                "name": "webservers",
+                "hostnames": [
+                    "con1","con2"
                 ]
             }
         ]
