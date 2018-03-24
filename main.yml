@@ -1,6 +1,6 @@
 ---
 - name: deploy the gisdev software stack
-  hosts: wp
+  hosts: all
   sudo: true
 
   tasks:
@@ -17,15 +17,4 @@
         - sysstat
         - wget
         - unzip
-        - zip 
-        - bash-completion
-        - apache2 
-        - libapache2-mod-php7.0 
-        - php7.0
-        - net-tools
-        - autoconf 
-        - gcc 
-        - libc6 
-        - make 
-        - apache2-utils 
-        - libgd-dev
+        - zip
